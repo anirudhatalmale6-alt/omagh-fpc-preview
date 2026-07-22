@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omagh Free Presbyterian Church</title>
+<style>
+:root{
+ --blue:#1e6dad;        /* main header */
+ --blue-d:#17517f;      /* darker */
+ --blue-nav:#2a86cf;    /* nav bar */
+ --navy:#12324f;        /* deep */
+ --teal:#2ea88f;        /* accent */
+ --teal-d:#268a76;
+ --ink:#1f2d3a;--mut:#5d7183;--line:#e3eaf0;--paper:#f4f8fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+a{text-decoration:none;color:inherit}
+
+/* top strip */
+.strip{background:var(--navy);color:#cfe0ee;font-size:13px}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 22px;flex-wrap:wrap}
+.strip .times{display:flex;gap:22px;flex-wrap:wrap}
+.strip .times b{color:#fff;font-weight:700}
+.strip .soc{display:flex;gap:8px}
+.strip .soc a{width:26px;height:26px;border-radius:5px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700}
+
+/* header */
+.hdr{background:var(--blue);background:linear-gradient(180deg,var(--blue) 0%,var(--blue-d) 100%)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px}
+.brand{display:flex;align-items:center;gap:15px}
+.brand img{width:72px;height:72px;border-radius:50%;background:#fff}
+.brand .wm{color:#fff;line-height:1.05}
+.brand .wm .b1{font-size:30px;font-weight:800;letter-spacing:2px}
+.brand .wm .b2{font-size:14px;font-weight:600;letter-spacing:3px;color:#d6e7f5}
+.webcast{display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#fff;font-weight:800;font-size:14px;letter-spacing:.03em;padding:12px 20px;border-radius:8px;box-shadow:0 6px 16px rgba(46,168,143,.35)}
+.webcast .dot{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.35);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* nav */
+nav{background:var(--blue-nav)}
+nav .wrap{display:flex;align-items:stretch;gap:2px;padding:0 22px}
+nav a{color:#fff;font-weight:700;font-size:15px;letter-spacing:.02em;padding:16px 20px;position:relative;display:flex;align-items:center;gap:6px}
+nav a.active{background:#fff;color:var(--blue)}
+nav a:hover:not(.active){background:rgba(255,255,255,.14)}
+nav a .car{font-size:10px;opacity:.85}
+
+/* hero */
+.hero{position:relative;min-height:520px;display:flex;align-items:center;color:#fff;
+ background:linear-gradient(90deg,rgba(9,26,41,.86) 0%,rgba(9,26,41,.5) 55%,rgba(9,26,41,.25) 100%),url('assets/church003.jpg') center/cover no-repeat;
+ background-color:#12324f}
+.hero .wrap{padding-top:60px;padding-bottom:60px}
+.hero .kick{color:var(--teal);font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+.hero h1{font-size:52px;line-height:1.05;font-weight:800;max-width:680px;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero p{font-size:19px;color:#dfeaf3;max-width:540px;margin-top:18px}
+.hero .btns{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:800;font-size:16px;padding:14px 28px;border-radius:9px;transition:transform .12s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.teal{background:var(--teal);color:#fff;box-shadow:0 8px 20px rgba(46,168,143,.35)}
+.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+.timecard{position:absolute;right:22px;bottom:0;transform:translateY(35%);background:var(--teal);color:#fff;padding:20px 26px;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,.28);max-width:280px}
+.timecard h4{font-size:13px;letter-spacing:.15em;text-transform:uppercase;opacity:.9;margin-bottom:8px}
+.timecard .r{display:flex;justify-content:space-between;gap:18px;padding:5px 0;font-size:15px;border-top:1px solid rgba(255,255,255,.25)}
+.timecard .r:first-of-type{border-top:0}
+.timecard .r b{font-weight:800}
+@media(max-width:900px){.timecard{display:none}}
+
+/* welcome */
+.welcome{padding:96px 0 74px}
+.welcome .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.ey{color:var(--teal);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:13px;margin-bottom:12px}
+.welcome h2{font-size:34px;font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:18px}
+.welcome p{color:var(--mut);font-size:16.5px;margin-bottom:16px}
+.welcome .imgwrap{border-radius:14px;overflow:hidden;box-shadow:0 20px 46px rgba(18,50,79,.18)}
+.welcome .imgwrap img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.btn.solid{background:var(--blue);color:#fff}
+.btn.sm{font-size:15px;padding:12px 24px}
+
+/* verse band */
+.verse{position:relative;color:#fff;text-align:center;padding:88px 22px;
+ background:linear-gradient(rgba(9,26,41,.78),rgba(9,26,41,.78)),url('assets/building2.jpg') center/cover fixed no-repeat;
+ background-color:#12324f}
+.verse blockquote{font-size:30px;font-weight:700;max-width:820px;margin:0 auto;line-height:1.3}
+.verse .ref{margin-top:16px;color:var(--teal);font-weight:800;letter-spacing:.08em;font-size:16px}
+
+/* connect cards */
+.connect{padding:90px 0;background:var(--paper)}
+.connect .head{text-align:center;max-width:660px;margin:0 auto 50px}
+.connect h2{font-size:32px;font-weight:800;color:var(--navy)}
+.connect .head p{color:var(--mut);font-size:16.5px;margin-top:12px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:34px 28px;text-align:center;transition:transform .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(18,50,79,.12)}
+.card .ic{width:64px;height:64px;border-radius:14px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px}
+.card:nth-child(2) .ic{background:var(--teal)}
+.card h3{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.card p{color:var(--mut);font-size:15.5px}
+.card a{display:inline-block;margin-top:16px;color:var(--blue);font-weight:800;font-size:14.5px}
+
+/* ministries */
+.mins{padding:84px 0}
+.mins .head{text-align:center;max-width:660px;margin:0 auto 44px}
+.mins h2{font-size:32px;font-weight:800;color:var(--navy)}
+.mins .head p{color:var(--mut);font-size:16.5px;margin-top:12px}
+.mgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.mcard{text-align:center;padding:28px 14px;border:1px solid var(--line);border-radius:14px;background:#fbfdff;transition:transform .15s ease,box-shadow .15s ease}
+.mcard:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(18,50,79,.1)}
+.mcard .mic{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px}
+.mcard:nth-child(2) .mic,.mcard:nth-child(4) .mic{background:var(--teal)}
+.mcard b{color:var(--navy);font-size:16px;display:block}
+.mcard span{color:var(--mut);font-size:13px}
+
+/* media strip */
+.media{padding:70px 0;text-align:center;background:var(--paper)}
+.media h2{font-size:30px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.media .lead{color:var(--mut);margin-bottom:40px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:860px;margin:0 auto}
+.tile{border:1px solid var(--line);border-radius:14px;padding:26px 14px;transition:transform .15s ease,box-shadow .15s ease}
+.tile:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(18,50,79,.12)}
+.tile .ci{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:26px;color:#fff}
+.tile b{display:block;color:var(--navy);font-size:16px}
+.tile span{color:var(--mut);font-size:13px}
+.fb{background:#1877f2}.yt{background:#ff0000}.zm{background:#2d8cff}.mx{background:#5000ff}
+
+/* sermons */
+.sermons{padding:20px 0 92px}
+.sermons .head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:34px}
+.sermons h2{font-size:30px;font-weight:800;color:var(--navy)}
+.sermons .head p{color:var(--mut)}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sv{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.sv .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.sv .thumb img{width:52px;height:52px;opacity:.9}
+.sv .thumb .play{position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:18px}
+.sv .meta{padding:14px 16px}
+.sv .meta b{color:var(--navy);font-size:15px}
+.sv .meta span{color:var(--mut);font-size:13px}
+
+/* footer */
+footer{background:var(--navy);color:#a9c2d6;padding:60px 0 0}
+.fcols{display:grid;grid-template-columns:1.2fr 1fr 1.2fr;gap:44px}
+footer h4{color:#fff;font-size:16px;font-weight:800;letter-spacing:.04em;margin-bottom:16px;text-transform:uppercase}
+footer p{font-size:14.5px;margin-bottom:10px}
+footer .brandf{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+footer .brandf img{width:52px;height:52px;border-radius:50%;background:#fff}
+footer .brandf b{color:#fff;font-size:17px;line-height:1.2}
+footer .ci{color:var(--teal);font-weight:800;margin-right:8px}
+footer .subs{display:flex;gap:8px;margin-top:6px}
+footer .subs input{flex:1;padding:11px 12px;border:0;border-radius:7px;font-size:14px}
+footer .subs button{background:var(--teal);color:#fff;border:0;font-weight:800;padding:0 18px;border-radius:7px;cursor:pointer}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding:20px 0;text-align:center;font-size:13px;color:#7f9cb4}
+
+@media(max-width:900px){
+ nav .wrap{flex-wrap:wrap}
+ .welcome .grid,.fcols{grid-template-columns:1fr;gap:32px}
+ .cards,.tiles,.sgrid{grid-template-columns:1fr 1fr}
+ .hero h1{font-size:38px}
+}
+@media(max-width:560px){.cards,.tiles,.sgrid{grid-template-columns:1fr}.brand .wm .b1{font-size:22px}.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+
+<!-- top strip -->
+<div class="strip">
+  <div class="wrap">
+    <div class="times">
+      <span><b>Morning Worship</b> 12 noon Sun</span>
+      <span><b>Evening Worship</b> 7:00 pm Sun</span>
+      <span><b>Prayer Meeting</b> 6:30 pm Wed</span>
+    </div>
+    <div class="soc">
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="YouTube">&#9654;</a>
+      <a href="#" title="MixCloud">&#9835;</a>
+      <a href="#" title="Zoom">Z</a>
+    </div>
+  </div>
+</div>
+
+<!-- header -->
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <img src="assets/logo.png" alt="Omagh Free Presbyterian Church crest">
+      <div class="wm">
+        <div class="b1">OMAGH</div>
+        <div class="b2">FREE PRESBYTERIAN CHURCH</div>
+      </div>
+    </a>
+    <a class="webcast" href="#"><span class="dot"></span> LIVE WEBCAST</a>
+  </div>
+</header>
+
+<!-- nav -->
+<nav>
+  <div class="wrap">
+    <a class="active" href="#">HOME</a>
+    <a href="#">ABOUT US <span class="car">&#9660;</span></a>
+    <a href="#">MEDIA <span class="car">&#9660;</span></a>
+    <a href="#">MINISTRIES <span class="car">&#9660;</span></a>
+    <a href="#">EVENTS</a>
+    <a href="#">CONTACT US</a>
+    <a href="#">LINKS</a>
+  </div>
+</nav>
+
+<!-- hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="kick">Welcome</div>
+    <h1>Omagh Free Presbyterian Church</h1>
+    <p>We believe Jesus Christ has something vital to say to every person who lives in and around our town. You are warmly invited to join us.</p>
+    <div class="btns">
+      <a class="btn teal" href="#"><span>&#9654;</span> Watch live</a>
+      <a class="btn ghost" href="#">Plan your visit</a>
+    </div>
+  </div>
+  <div class="timecard">
+    <h4>Service Times</h4>
+    <div class="r"><span>Sunday Morning</span><b>12 noon</b></div>
+    <div class="r"><span>Sunday Evening</span><b>7:00 pm</b></div>
+    <div class="r"><span>Wed Prayer</span><b>6:30 pm</b></div>
+  </div>
+</section>
+
+<!-- welcome -->
+<section class="welcome">
+  <div class="wrap grid">
+    <div>
+      <div class="ey">About Us</div>
+      <h2>Welcome to the Free Presbyterian Church in Omagh</h2>
+      <p>We are a family of ordinary people from in and around Omagh, brought together by our love for the Lord Jesus Christ and His Word. Whatever your background, and wherever you are on your journey, you will find a warm welcome at our door.</p>
+      <p>Our services are Bible-centred and Christ-honouring. We gather each Sunday to worship, to be encouraged from the Scriptures, and to grow together in faith. Services start at 12 noon and 7:00 pm every Sunday.</p>
+      <a class="btn solid sm" href="#">Read more</a>
+    </div>
+    <div class="imgwrap"><img src="assets/building1.jpg" alt="Our congregation"></div>
+  </div>
+</section>
+
+<!-- verse -->
+<section class="verse">
+  <blockquote>&ldquo;Come to me, all you who are weary and burdened, and I will give you rest.&rdquo;</blockquote>
+  <div class="ref">Matthew 11:28</div>
+</section>
+
+<!-- connect -->
+<section class="connect">
+  <div class="wrap">
+    <div class="head">
+      <h2>Connect with your church family and community</h2>
+      <p>There are lots of ways to get involved, grow in your faith, and get to know people. Here are a few to start with.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ic">&#128101;</div>
+        <h3>Sunday Fellowship</h3>
+        <p>Sunday morning services are followed by refreshments &mdash; a relaxed chance to connect with people in your community.</p>
+        <a href="#">Find out more &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="ic">&#128214;</div>
+        <h3>Christianity Explored</h3>
+        <p>An informal and relaxed course for anyone who wants to think about the meaning of life and who Jesus is.</p>
+        <a href="#">Find out more &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="ic">&#128591;</div>
+        <h3>Bible Study &amp; Prayer</h3>
+        <p>An opportunity to pray together and dig deeper into the Bible, discovering the relevance of its message for today.</p>
+        <a href="#">Find out more &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ministries -->
+<section class="mins">
+  <div class="wrap">
+    <div class="head">
+      <div class="ey" style="text-align:center">Church Life</div>
+      <h2>Our ministries</h2>
+      <p>There is something for every age and stage right through the week.</p>
+    </div>
+    <div class="mgrid">
+      <div class="mcard"><div class="mic">&#128214;</div><b>Sunday School</b><span>Children</span></div>
+      <div class="mcard"><div class="mic">&#128591;</div><b>Prayer &amp; Bible Study</b><span>Midweek</span></div>
+      <div class="mcard"><div class="mic">&#128161;</div><b>Pathlighters</b><span>Young people</span></div>
+      <div class="mcard"><div class="mic">&#127793;</div><b>Youth Fellowship</b><span>Teens &amp; up</span></div>
+      <div class="mcard"><div class="mic">&#9749;</div><b>Ladies&rsquo; Meeting</b><span>Fellowship</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- media strip -->
+<section class="media">
+  <div class="wrap">
+    <h2>Follow &amp; listen</h2>
+    <p class="lead">Our worship continues online too &mdash; connect with us wherever you are.</p>
+    <div class="tiles">
+      <a class="tile" href="#"><div class="ci fb">f</div><b>Facebook</b><span>News &amp; live services</span></a>
+      <a class="tile" href="#"><div class="ci yt">&#9654;</div><b>YouTube</b><span>Video sermons</span></a>
+      <a class="tile" href="#"><div class="ci zm">&#9679;</div><b>Zoom</b><span>Prayer meetings</span></a>
+      <a class="tile" href="#"><div class="ci mx">&#9835;</div><b>MixCloud</b><span>Audio sermons</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- sermons -->
+<section class="sermons">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Latest sermons</h2>
+        <p>The newest messages, pulled in automatically from our YouTube channel.</p>
+      </div>
+      <a class="btn solid sm" href="#">View all sermons</a>
+    </div>
+    <div class="sgrid">
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>Sunday Morning Service</b><br><span>Latest message</span></div></div>
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>Sunday Evening Service</b><br><span>Latest message</span></div></div>
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>Midweek Bible Study</b><br><span>Latest message</span></div></div>
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>Gospel Message</b><br><span>Recent</span></div></div>
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>The Royal Law of Love</b><br><span>Recent</span></div></div>
+      <div class="sv"><div class="thumb"><img src="assets/logo.png" alt=""><span class="play">&#9654;</span></div><div class="meta"><b>Power in Preaching</b><br><span>Recent</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div>
+        <div class="brandf"><img src="assets/logo.png" alt=""><b>Omagh Free<br>Presbyterian Church</b></div>
+        <p>A community of people loving each other and our Lord &mdash; humble, gentle and patient, bearing with one another in love.</p>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <p><span class="ci">&#9873;</span>12 Crevenagh View, Omagh,<br>Co. Tyrone, BT79 0JH</p>
+        <p><span class="ci">&#9742;</span>028 8224 2299</p>
+        <p><span class="ci">&#9742;</span>07871 770025</p>
+        <p><span class="ci">&#9993;</span>colin.mercer@omaghfpc.org</p>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <p>Get our thought for the week and news of upcoming services straight to your inbox.</p>
+        <div class="subs"><input type="email" placeholder="Your email address"><button>Sign up</button></div>
+      </div>
+    </div>
+    <div class="copy">&copy; 2026 Omagh Free Presbyterian Church &middot; Ardens Sed Virens &middot; Website by Smile Creative</div>
+  </div>
+</footer>
+
+</body>
+</html>
